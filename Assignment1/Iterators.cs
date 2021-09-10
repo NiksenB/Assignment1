@@ -23,15 +23,5 @@ namespace Assignment1
         {
             throw new NotImplementedException();
         }
-
-        public static void Main(string[] args) {
-            var lilList = new List<int>{1,2,3};
-            var lilBuddyList = new List<int>{3,4,5};
-            var bigList = new List<List<int>> {lilList};
-
-            foreach (int i in Flatten<int>(bigList)) {
-                Console.WriteLine(i);
-            }
-        }
     }
 }
