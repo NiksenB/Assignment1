@@ -23,7 +23,7 @@ namespace Assignment1.Tests
         }
 
         [Fact]
-        public void Flatten_strings_heyhello_ab_returns_heyhelloab(){
+        public void Flatten_strings_HeyHello_AB_returns_BAHelloHey(){
             
             //Arrange
             var stack1 = new Stack<string>();
