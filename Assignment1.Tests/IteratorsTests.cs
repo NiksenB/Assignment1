@@ -43,5 +43,20 @@ namespace Assignment1.Tests
             //Assert
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void Filter_returns_246() {
+            //Arrange
+            var testliste = new List<int>{1,2,3,4,5,6};
+            var expected = new List<int>{2,4,6};
+            Predicate<int> even = Iterators.Even;
+
+            //Act
+            var actual = Iterators.Filter<int>(testliste, even);
+
+            //Assert
+            Assert.Equal(expected, actual);
+
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Assignment1
 {
@@ -7,12 +8,37 @@ namespace Assignment1
     {
         public static IEnumerable<string> SplitLine(IEnumerable<string> lines)
         {
-            throw new NotImplementedException();
+            Regex rg = new Regex(@"\w+");
+
+            foreach (string item in lines) 
+            {
+                MatchCollection words = rg.Matches(item);
+                foreach (Match word in words)
+                {
+                    yield return word.Value;
+                }
+            }
         }
 
-        public static IEnumerable<(int width, int height)> Resolution(string resolutions)
+        public static IEnumerable<(int width, int height)> Resolution(IEnumerable<string> resolutions)
         {
-            throw new NotImplementedException();
+            Regex rg = new Regex(@"(?<width>\d+)[x](?<height>\d+)");
+
+            foreach (var resolution in resolutions)
+            {
+                var matches = rg.Matches(resolution);
+                foreach (Match match in matches)
+                {
+                        GroupCollection groups = match.Groups;
+                        int w = Int32.Parse(groups["width"].Value);
+                        int h = Int32.Parse(groups["height"].Value);
+
+                        yield return (w, h);
+
+                }
+                
+
+            }
         }
 
         public static IEnumerable<string> InnerText(string html, string tag)

@@ -21,7 +21,19 @@ namespace Assignment1
         applied to an instance of T. It returns a stream of only the Ts where the predicate returns true. */
         public static IEnumerable<T> Filter<T>(IEnumerable<T> items, Predicate<T> predicate)
         {
-            throw new NotImplementedException();
+                foreach (T item in items)
+                {
+                    if (predicate(item)) 
+                    {
+                        yield return item;
+                    }
+                    
+                }
         }
+
+        public static bool Even(int i)
+         {
+           return i % 2 == 0;
+         }
     }
 }
