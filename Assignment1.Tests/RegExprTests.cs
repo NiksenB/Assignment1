@@ -11,7 +11,7 @@ namespace Assignment1.Tests
         {
             //Arrange
             IEnumerable<string> line = new string[]{"hej med dig"};
-            var expected = new List<string>{"hej", "med", "dig"};
+                var expected = new List<string>{"hej", "med", "dig"};
 
             //Act
             var actual = RegExpr.SplitLine(line);
@@ -52,5 +52,19 @@ namespace Assignment1.Tests
 
         }
 
+        [Fact]
+        public void InnerText_html_p_six_results(){
+            //Arrange
+            string html = "<div> \n    <p>The phrase <i>regular expressions</i> (and consequently, regexes) is often used to mean the specific, standard textual syntax for representing <u>patterns</u> that matching <em>text</em> need to conform to.</p> \n </div>";
+            string tag = "p";
+            IEnumerable<string> expected = new string[]{"The phrase regular expressions (and consequently, regexes) is often used to mean the specific, standard textual syntax for representing patterns that matching text need to conform to."};
+            
+            //Act
+            var actual = RegExpr.InnerText(html, tag);
+
+            //Assert
+            Assert.Equal(expected, actual);
+
+        }
     }
 }

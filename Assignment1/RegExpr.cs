@@ -43,7 +43,23 @@ namespace Assignment1
 
         public static IEnumerable<string> InnerText(string html, string tag)
         {
-            throw new NotImplementedException();
+            string a = "<";
+            string b = ".*?>(.*?)<\\/";
+            string c = ">*";
+
+            string s = a+tag+b+tag+c;
+
+            //string s = "<a.*?>(.*?)<\\/a>*";
+            Regex rg = new Regex(@s);
+
+            foreach (Match match in rg.Matches(html)) 
+            {
+                GroupCollection groups = match.Groups;
+
+                string pattern = @"<\/?[a-z]{0,10}>";
+                var newRg = Regex.Replace(groups[1].Value, pattern);
+                yield return newRg;
+            }
         }
     }
 }
