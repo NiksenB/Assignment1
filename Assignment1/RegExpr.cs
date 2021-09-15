@@ -47,17 +47,16 @@ namespace Assignment1
             string b = ".*?>(.*?)<\\/";
             string c = ">*";
 
-            string s = a+tag+b+tag+c;
+            Regex rg = new Regex(@a+tag+b+tag+c);
 
-            //string s = "<a.*?>(.*?)<\\/a>*";
-            Regex rg = new Regex(@s);
+            string newP = @"<\/?[a-z]{0,10}>";
 
             foreach (Match match in rg.Matches(html)) 
             {
                 GroupCollection groups = match.Groups;
-
-                string pattern = @"<\/?[a-z]{0,10}>";
-                var newRg = Regex.Replace(groups[1].Value, pattern);
+                            
+                var newRg = Regex.Replace(groups[1].Value ,newP, "");
+                
                 yield return newRg;
             }
         }

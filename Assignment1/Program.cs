@@ -7,14 +7,20 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
-            var res = "1920x1080, 1024x768, 800x600, 640x480, 320x200, 320x240, 800x600, 1280x960";
-            foreach (var i in RegExpr.Resolution(new string[]{res}))
+            //Innertext exercise
+            string html = "<div> \n    <p>The phrase <i>regular expressions</i> (and consequently, regexes) is often used to mean the specific, standard textual syntax for representing <u>patterns</u> that matching <em>text</em> need to conform to.</p> \n </div>";
+            string tag = "p";
+            foreach (string i in RegExpr.InnerText(html,tag))
             {
-                Console.WriteLine(i);
+                 Console.WriteLine(i);
             }
-
-
-
+            
+            //Resolution exercise
+            // var res = "1920x1080, 1024x768, 800x600, 640x480, 320x200, 320x240, 800x600, 1280x960";
+            // foreach (var i in RegExpr.Resolution(new string[]{res}))
+            // {
+            //     Console.WriteLine(i);
+            // }
 
             // SplitLine exercise
             /*var ord = "hej med dig";
