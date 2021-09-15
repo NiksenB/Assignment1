@@ -54,8 +54,7 @@ namespace Assignment1
             foreach (Match match in rg.Matches(html)) 
             {
                 GroupCollection groups = match.Groups;
-                            
-                var newRg = Regex.Replace(groups[1].Value ,newP, "");
+                var newRg = Regex.Replace(groups[1].Value, newP, "");
                 
                 yield return newRg;
             }
