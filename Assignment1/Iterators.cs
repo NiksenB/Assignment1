@@ -30,7 +30,6 @@ namespace Assignment1
                     
                 }
         }
-
         public static bool Even(int i)
          {
            return i % 2 == 0;

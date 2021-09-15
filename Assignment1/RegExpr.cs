@@ -7,7 +7,7 @@ namespace Assignment1
     public static class RegExpr
     {
         public static IEnumerable<string> SplitLine(IEnumerable<string> lines)
-        {
+        {                   
             Regex rg = new Regex(@"\w+");
 
             foreach (string item in lines) 
@@ -15,7 +15,7 @@ namespace Assignment1
                 MatchCollection words = rg.Matches(item);
                 foreach (Match word in words)
                 {
-                    yield return word.Value;
+                    yield return word.Value.Replace("_","");
                 }
             }
         }
@@ -34,10 +34,7 @@ namespace Assignment1
                         int h = Int32.Parse(groups["height"].Value);
 
                         yield return (w, h);
-
                 }
-                
-
             }
         }
 

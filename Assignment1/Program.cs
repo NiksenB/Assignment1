@@ -28,9 +28,7 @@ namespace Assignment1
             {
                 Console.WriteLine(i);
             }*/
-            
-            
-
+        
 
             // Filter exercise
             /*var liste = new List<int>{1,2,3,4,5,6};
