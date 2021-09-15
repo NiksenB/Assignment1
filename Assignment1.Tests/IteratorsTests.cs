@@ -36,9 +36,10 @@ namespace Assignment1.Tests
             bigStack.Push(stack1);
             bigStack.Push(stack2);
 
+            IEnumerable<string> expected = new []{"B", "A", "Hello", "Hey"};
+
             //Act
             var actual = Iterators.Flatten<string>(bigStack);
-            IEnumerable<string> expected = new []{"B", "A", "Hello", "Hey"};
 
             //Assert
             Assert.Equal(expected, actual);
